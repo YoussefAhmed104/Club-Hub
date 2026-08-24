@@ -130,6 +130,9 @@
 .mt-25 {
   margin-top: 25px;
 }
+.mt-35 {
+  margin-top: 35px;
+}
 .mr-5 {
   margin-right: 5px;
 }
@@ -233,6 +236,9 @@
 }
 .fs-25 {
   font-size: 25px;
+}
+.fs-35 {
+  font-size: 35px;
 }
 .fs-40 {
   font-size: 40px;

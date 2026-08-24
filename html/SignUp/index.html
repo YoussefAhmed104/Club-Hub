@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verification</title>
-    <link rel="stylesheet" href="../../css/LogIn/style.css" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../../css/SignUp/style.css" />
     <!-- Render all elements noramlly -->
     <link rel="stylesheet" href="../../css/normalize.css" />
     <!-- My own framework -->
@@ -16,10 +16,20 @@
     <div class="container">
       <div class="form-container">
         <div class="form-header">
-          <p>Please enter your details</p>
-          <h1>Welcome Back</h1>
+          <h1>Sign Up</h1>
         </div>
         <div class="form-box p-relative">
+          <div class="input-group p-relative">
+            <input
+              type="name"
+              id="name"
+              class="input-field"
+              placeholder=""
+              required
+            />
+            <label for="name" class="floating-label">Name</label>
+          </div>
+
           <div class="input-group p-relative">
             <input
               type="email"
@@ -30,6 +40,7 @@
             />
             <label for="email" class="floating-label">Email address</label>
           </div>
+
           <div class="input-group p-relative">
             <input
               type="password"
@@ -39,35 +50,26 @@
               required
             />
             <label for="password" class="floating-label">Password</label>
-            <div class="eye-icon p-absolute ideal-flex v-centering">
-              <i class="fa-regular fa-eye eye-hide"></i>
+            <div
+              class="eye-icon p-absolute ideal-flex v-centering"
+              id="eyeIcon"
+            >
+              <i class="fa-regular fa-eye"></i>
             </div>
           </div>
-          <div class="checkbox-group between-flex">
-            <div class="checkbox-input ideal-flex">
-              <input type="checkbox" id="remember-checkbox" />
-              <label class="ml-5" for="remember-checkbox">Remember me</label>
-            </div>
-            <a href="#">Forgot password?</a>
-          </div>
-          <button class="w-full b-none c-white">LOG IN</button>
+          <button class="w-full b-none c-white">Sign Up</button>
+          <p class="txt-c">
+            Already have an account? <a class="fs-15" href="">Log in</a>
+          </p>
           <span class="p-absolute or-choice">Or</span>
         </div>
-        <div class="form-footer">
-          <div class="social between-flex mt-25 mb-40">
-            <a href=""
-              ><div><i class="fa-brands fa-google"></i></div
-            ></a>
-            <a href=""
-              ><div><i class="fa-brands fa-facebook"></i></div
-            ></a>
-            <a href=""
-              ><div><i class="fa-brands fa-apple"></i></div
-            ></a>
-          </div>
-          <p class="txt-c">
-            Don't have an account? <a class="fs-15" href="">Sing up</a>
-          </p>
+        <div class="form-footer mt-35">
+          <a href=""
+            ><div class="w-full ideal-flex">
+              <i class="fa-brands fa-google fs-25 mr-10"></i>
+              <span class="fs-15">Sign up with Google</span>
+            </div></a
+          >
         </div>
       </div>
     </div>
