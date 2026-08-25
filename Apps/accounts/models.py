@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
-
+import re
 
 class CustomUserManager(BaseUserManager):
   def create_user(self, personal_email, password=None, **extra_fields):
@@ -32,7 +32,7 @@ class CustomUser(AbstractUser):
     ('12th', '12th Grade'),
   ]
   nickname = models.CharField(max_length = 50, blank = True, null = True)
-  school_email = models.EmailField(unique=True)
+  school_email = models.EmailField(unique=True, blank=True, editable=False)
   personal_email = models.EmailField(unique=True)
   school_code = models.CharField(max_length=7 ,unique=True)
   email_verified = models.BooleanField(default=False)
@@ -44,7 +44,7 @@ class CustomUser(AbstractUser):
   REQUIRED_FIELDS = []
 
   objects = CustomUserManager()
-  
+
   @property
   def clubs_count(self):
     return Membership.objects.filter(
@@ -55,6 +55,12 @@ class CustomUser(AbstractUser):
   @property
   def full_name(self):
     return f"{self.first_name} {self.last_name}"
+
+  # auto save the school mail
+  def save(self, *args, **kwargs):
+    clean_name = re.sub(r'\s+', '', self.first_name.strip().lower())
+    self.school_email = f"{clean_name}.{self.school_code}@stemoctober.moe.edu.eg"
+    super().save(*args, **kwargs)
   
   def __str__(self):
     return self.full_name

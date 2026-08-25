@@ -1,0 +1,11 @@
+{% if validlink %}
+  <h2>Set New Password</h2>
+  {% csrf_token %}
+  <form method="POST">
+    {{ form.as_p }}
+    <button type="submit">Change Password</button>
+  </form>
+{% else %}
+  <h2>Link Expired or Invalid</h2>
+  <p>This password reset link is invalid or has expired. Please request a new one.</p>
+{% endif %}
