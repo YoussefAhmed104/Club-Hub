@@ -8,8 +8,10 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.contrib.auth import authenticate, login, logout
 from .forms import *
 from .models import CustomUser
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url='login')
 def test(request):
   return render(request, 'accounts/test.html')
 
@@ -78,3 +80,9 @@ def verify_email(request, uidb64, token):
   user.is_active = True
   user.save(update_fields=['email_verified', 'is_active'])
   return HttpResponse('Your email has been verified. You can now log in.')
+
+
+def user_logout(request):
+  logout(request)
+  messages.success(request,"You are loged out succesfully")
+  return redirect('login')
