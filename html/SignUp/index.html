@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../../css/SignUp/style.css" />
+    <!-- Render all elements noramlly -->
+    <link rel="stylesheet" href="../../css/normalize.css" />
+    <!-- My own framework -->
+    <link rel="stylesheet" href="../../css/framework.css" />
+    <!-- Fontawesome Library -->
+    <link rel="stylesheet" href="../../css/all.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="form-header">
+          <h1>Sign Up</h1>
+        </div>
+        <div class="form-box p-relative">
+          <div class="input-group p-relative">
+            <input
+              type="name"
+              id="name"
+              class="input-field"
+              placeholder=""
+              required
+            />
+            <label for="name" class="floating-label">Name</label>
+          </div>
+
+          <div class="input-group p-relative">
+            <input
+              type="email"
+              id="email"
+              class="input-field"
+              placeholder=""
+              required
+            />
+            <label for="email" class="floating-label">Email address</label>
+          </div>
+
+          <div class="input-group p-relative">
+            <input
+              type="password"
+              id="password"
+              class="input-field"
+              placeholder=""
+              required
+            />
+            <label for="password" class="floating-label">Password</label>
+            <div
+              class="eye-icon p-absolute ideal-flex v-centering"
+              id="eyeIcon"
+            >
+              <i class="fa-regular fa-eye"></i>
+            </div>
+          </div>
+          <button class="w-full b-none c-white">Sign Up</button>
+          <p class="txt-c">
+            Already have an account? <a class="fs-15" href="">Log in</a>
+          </p>
+          <span class="p-absolute or-choice">Or</span>
+        </div>
+        <div class="form-footer mt-35">
+          <a href=""
+            ><div class="w-full ideal-flex">
+              <i class="fa-brands fa-google fs-25 mr-10"></i>
+              <span class="fs-15">Sign up with Google</span>
+            </div></a
+          >
+        </div>
+      </div>
+    </div>
+    <script>
+      let eyeIcon = document.getElementById("eyeIcon");
+      let password = document.getElementById("password");
+      eyeIcon.onclick = function () {
+        let eye = document.querySelector(".input-group i");
+        if (password.type == "password") {
+          password.type = "text";
+          eye.className = "fa-regular fa-eye-slash";
+        } else {
+          password.type = "password";
+          eye.className = "fa-regular fa-eye";
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verification</title>
+    <link rel="stylesheet" href="../../css/LogIn/style.css" />
+    <!-- Render all elements noramlly -->
+    <link rel="stylesheet" href="../../css/normalize.css" />
+    <!-- My own framework -->
+    <link rel="stylesheet" href="../../css/framework.css" />
+    <!-- Fontawesome Library -->
+    <link rel="stylesheet" href="../../css/all.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="form-header">
+          <p>Please enter your details</p>
+          <h1>Welcome Back</h1>
+        </div>
+        <div class="form-box p-relative">
+          <div class="input-group p-relative">
+            <input
+              type="email"
+              id="email"
+              class="input-field"
+              placeholder=""
+              required
+            />
+            <label for="email" class="floating-label">Email address</label>
+          </div>
+          <div class="input-group p-relative">
+            <input
+              type="password"
+              id="password"
+              class="input-field"
+              placeholder=""
+              required
+            />
+            <label for="password" class="floating-label">Password</label>
+            <div class="eye-icon p-absolute ideal-flex v-centering">
+              <i class="fa-regular fa-eye eye-hide"></i>
+            </div>
+          </div>
+          <div class="checkbox-group between-flex">
+            <div class="checkbox-input ideal-flex">
+              <input type="checkbox" id="remember-checkbox" />
+              <label class="ml-5" for="remember-checkbox">Remember me</label>
+            </div>
+            <a href="#">Forgot password?</a>
+          </div>
+          <button class="w-full b-none c-white">LOG IN</button>
+          <span class="p-absolute or-choice">Or</span>
+        </div>
+        <div class="form-footer">
+          <div class="social between-flex mt-25 mb-40">
+            <a href=""
+              ><div><i class="fa-brands fa-google"></i></div
+            ></a>
+            <a href=""
+              ><div><i class="fa-brands fa-facebook"></i></div
+            ></a>
+            <a href=""
+              ><div><i class="fa-brands fa-apple"></i></div
+            ></a>
+          </div>
+          <p class="txt-c">
+            Don't have an account? <a class="fs-15" href="">Sing up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      let eyeIcon = document.getElementById("eyeIcon");
+      let password = document.getElementById("password");
+      eyeIcon.onclick = function () {
+        let eye = document.querySelector(".input-group i");
+        if (password.type == "password") {
+          password.type = "text";
+          eye.className = "fa-regular fa-eye-slash";
+        } else {
+          password.type = "password";
+          eye.className = "fa-regular fa-eye";
+        }
+      };
+    </script>
+  </body>
+</html>
