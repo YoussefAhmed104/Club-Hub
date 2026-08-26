@@ -14,7 +14,7 @@
   </head>
   <body>
     <!-- popupYes message -->
-    <div class="popupYes" id="popup">
+    <div class="popupYes" id="popupYes">
       <div class="icon">
         <i class="fa-regular fa-circle-check"></i>
         <h1>SUCCESS</h1>
@@ -24,6 +24,14 @@
         <button>Continue</button>
       </div>
     </div>
+    <!-- popupNo message -->
+    <div class="popupNo" id="popupNo">
+      <i class="fa-regular fa-circle-xmark"></i>
+      <h1>Failed</h1>
+      <h4>Invalid username or password.</h4>
+      <button>Ok</button>
+    </div>
+
     <div class="container">
       <div class="form-container">
         <div class="form-header">
@@ -32,7 +40,7 @@
         <form method="post">
           <div class="input-group p-relative">
             <input
-              type="name"
+              type="text"
               id="name"
               class="input-field"
               placeholder=""
