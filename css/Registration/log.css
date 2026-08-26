@@ -173,6 +173,7 @@ body {
 .form-header h1 {
   font-size: 32px;
   margin-top: 5px;
+  color: #4f4c4c;
 }
 form {
   display: flex;

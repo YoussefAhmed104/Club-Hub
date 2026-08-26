@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Basic&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM sans", sans-serif;
+}
+:root {
+  --color-background: #f0f0f0;
+  --color-text: #333;
+  --color-border: #ccc;
+  --color-placeholder: #777;
+  --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
+  --color-link: #1a73e8;
+  --color-divider: #ddd;
+  --color-social-hover: #f0f0f0;
+  --color-floating-label: #5f6368;
+  --color-white: #fff;
+  --main-transition: 0.3s;
+}
+body {
+  background-color: var(--color-background);
+}
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-container {
+  background-color: var(--color-white);
+  padding: 50px 30px;
+  width: 100%;
+  max-width: 450px;
+  border-color: var(--color-border);
+  border-radius: 8px;
+}
+.form-container .arrowIcon {
+  top: 20px;
+  left: 20px;
+  font-size: 18px;
+  color: #4f4c4c;
+  cursor: pointer;
+}
+.form-container h1 {
+  text-align: center;
+  margin-top: 0;
+  color: #4f4c4c;
+}
+.form-container p.desc {
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.3;
+  color: #686161;
+}
+form {
+  margin: 50px 0 70px;
+}
+form label,
+form input,
+form #send {
+  display: block;
+}
+form label {
+  font-size: 17px;
+  margin-bottom: 7px;
+  font-weight: 500;
+  color: #3b3d40;
+}
+form input,
+form #send {
+  width: 100%;
+  outline: none;
+  font-weight: 300;
+}
+form input {
+  height: 48px;
+  padding-left: 20px;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  outline: none;
+  caret-color: var(--color-border);
+  font-size: 15px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+form input::placeholder {
+  font-size: 15px;
+  font-weight: 500;
+}
+form #send {
+  background-color: var(--color-primary);
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-white);
+  border: none;
+}
+.form-container p:last-child {
+  text-align: center;
+}
+.form-container p:last-child a {
+  color: blue;
+}
