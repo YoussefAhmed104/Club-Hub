@@ -23,6 +23,70 @@
 body {
   background-color: var(--color-background);
 }
+/* popupYes message */
+.popupYes {
+  background-color: var(--color-white);
+  opacity: 0;
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 100;
+  -webkit-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.41);
+  transition: 0.4s;
+}
+.popupYes.active {
+  opacity: 1;
+  transform: scale(1);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.popupYes .icon {
+  background-color: var(--color-primary);
+  padding: 50px 40px 30px;
+  color: var(--color-white);
+}
+.popupYes .icon i {
+  color: #4fff4f;
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.popupYes .icon h1 {
+}
+.popupYes .info {
+  padding: 30px 40px 50px;
+}
+.popupYes .info h4 {
+  max-width: 350px;
+  font-size: 18px;
+  line-height: 1.3;
+  margin-bottom: 35px;
+  font-weight: 400;
+}
+.popupYes .info button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 15px;
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  transition: var(--main-transition);
+  cursor: pointer;
+  box-shadow: 2px 3px 4px 0px var(--color-border);
+}
+.popupYes .info button:hover {
+  background-color: var(--color-primary-hover);
+}
 .container {
   height: 100vh;
   display: flex;
@@ -44,7 +108,7 @@ body {
   font-size: 32px;
   margin-top: 5px;
 }
-.form-box {
+form {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -94,17 +158,17 @@ body {
 .checkbox-group a {
   font-size: 14px;
 }
-.form-box button {
+form button {
   background-color: var(--color-primary);
   padding: 10px 20px;
   border-radius: 3px;
   cursor: pointer;
   font-weight: 700;
 }
-.form-box button:hover {
+form button:hover {
   background-color: var(--color-primary-hover);
 }
-.form-box .or-choice {
+form .or-choice {
   font-size: 18px;
   padding: 2px 17px;
   bottom: -13px;

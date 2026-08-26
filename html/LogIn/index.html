@@ -13,13 +13,24 @@
     <link rel="stylesheet" href="../../css/all.min.css" />
   </head>
   <body>
+    <!-- popupYes message -->
+    <div class="popupYes" id="popup">
+      <div class="icon">
+        <i class="fa-regular fa-circle-check"></i>
+        <h1>SUCCESS</h1>
+      </div>
+      <div class="info">
+        <h4>Congratulations, you have successfully logged in.</h4>
+        <button>Continue</button>
+      </div>
+    </div>
     <div class="container">
       <div class="form-container">
         <div class="form-header">
           <p>Please enter your details</p>
           <h1>Welcome Back</h1>
         </div>
-        <div class="form-box p-relative">
+        <form method="post" class="p-relative">
           <div class="input-group p-relative">
             <input
               type="email"
@@ -39,8 +50,11 @@
               required
             />
             <label for="password" class="floating-label">Password</label>
-            <div class="eye-icon p-absolute ideal-flex v-centering">
-              <i class="fa-regular fa-eye eye-hide"></i>
+            <div
+              class="eye-icon p-absolute ideal-flex v-centering"
+              id="eyeIcon"
+            >
+              <i class="fa-regular fa-eye"></i>
             </div>
           </div>
           <div class="checkbox-group between-flex">
@@ -50,9 +64,9 @@
             </div>
             <a href="#">Forgot password?</a>
           </div>
-          <button class="w-full b-none c-white">LOG IN</button>
+          <button class="w-full b-none c-white" id="log-btn">LOG IN</button>
           <span class="p-absolute or-choice">Or</span>
-        </div>
+        </form>
         <div class="form-footer">
           <div class="social between-flex mt-25 mb-40">
             <a href=""
@@ -71,19 +85,6 @@
         </div>
       </div>
     </div>
-    <script>
-      let eyeIcon = document.getElementById("eyeIcon");
-      let password = document.getElementById("password");
-      eyeIcon.onclick = function () {
-        let eye = document.querySelector(".input-group i");
-        if (password.type == "password") {
-          password.type = "text";
-          eye.className = "fa-regular fa-eye-slash";
-        } else {
-          password.type = "password";
-          eye.className = "fa-regular fa-eye";
-        }
-      };
-    </script>
+    <script src="../../javascript/LogIn/script.js"></script>
   </body>
 </html>
