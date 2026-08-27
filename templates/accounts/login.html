@@ -1,11 +1,57 @@
-<form method="POST">
+{% extends '../base.html' %}
+{% load static %}
+
+{% block content %}
+  <form method="POST" class="form-container">
     {% csrf_token %}
 
-    {{ form.as_p }}
-
-    <button type="submit">Login</button>
-    <hr>
-    <a href="{% url "signup" %}">Don't have an account? Sign up here.</a>
-    <hr>
-    <a href="{% url "password_reset" %}">forget password?</a>
-</form>
+    <div class="form-header">
+      <p>Please enter your details</p>
+      <h1>Welcome Back</h1>
+    </div>
+    <div class="form-box p-relative">
+      <div class="input-group p-relative">
+        <input type="email" id="email" name="email" class="input-field" placeholder="" required />
+        <label for="email" class="floating-label">Email address</label>
+      </div>
+      <div class="input-group p-relative">
+        <input type="password" id="password" name="password" class="input-field" placeholder="" required />
+        <label for="password" class="floating-label">Password</label>
+        <div class="eye-icon p-absolute ideal-flex v-centering">
+          <i class="fa-regular fa-eye eye-hide"></i>
+        </div>
+      </div>
+      <div class="checkbox-group between-flex">
+        <div class="checkbox-input ideal-flex">
+          <input type="checkbox" id="remember-checkbox" />
+          <label class="ml-5" for="remember-checkbox">Remember me</label>
+        </div>
+        <a href="{% url 'password_reset' %}">Forgot password?</a>
+      </div>
+      <button type="submit" class="w-full b-none c-white">LOG IN</button>
+      <span class="p-absolute or-choice">Or</span>
+    </div>
+    <div class="form-footer">
+      {% comment %} <div class="social between-flex mt-25 mb-40">
+        <a href="">
+          <div>
+            <i class="fa-brands fa-google"></i>
+          </div>
+        </a>
+        <a href="">
+          <div>
+            <i class="fa-brands fa-facebook"></i>
+          </div>    
+        </a>
+        <a href="">
+          <div>
+            <i class="fa-brands fa-apple"></i>
+          </div>
+        </a>
+      </div> {% endcomment %}
+      <p class="txt-c">
+        Don't have an account? <a class="fs-15" href="{% url "signup" %}">Sing up</a>
+      </p>
+    </div>
+  </form>
+{% endblock %}

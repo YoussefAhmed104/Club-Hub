@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verification</title>
+    <link rel="stylesheet" href="../../css/Registration/log.css" />
+    <!-- Render all elements noramlly -->
+    <link rel="stylesheet" href="../../css/normalize.css" />
+    <!-- My own framework -->
+    <link rel="stylesheet" href="../../css/framework.css" />
+    <!-- Fontawesome Library -->
+    <link rel="stylesheet" href="../../css/all.min.css" />
+  </head>
+  <body>
+    <!-- popupYes message -->
+    <div class="popupYes" id="popup">
+      <div class="icon">
+        <i class="fa-regular fa-circle-check"></i>
+        <h1>SUCCESS</h1>
+      </div>
+      <div class="info">
+        <h4>Congratulations, you have successfully logged in.</h4>
+        <button>Continue</button>
+      </div>
+    </div>
+
+    <!-- popupNo message -->
+    <div class="popupNo" id="popupNo">
+      <i class="fa-regular fa-circle-xmark"></i>
+      <h1>Failed</h1>
+      <h4>Invalid username or password.</h4>
+      <button id="ok">Ok</button>
+    </div>
+
+    <div class="container">
+      <div class="form-container">
+        <div class="form-header">
+          <p>Please enter your details</p>
+          <h1>Welcome Back</h1>
+        </div>
+        <form method="post" class="p-relative">
+          <div class="input-group p-relative">
+            <input
+              type="email"
+              id="email"
+              class="input-field"
+              placeholder=""
+              required
+            />
+            <label for="email" class="floating-label">Email address</label>
+          </div>
+          <div class="input-group p-relative">
+            <input
+              type="password"
+              id="password"
+              class="input-field"
+              placeholder=""
+              required
+            />
+            <label for="password" class="floating-label">Password</label>
+            <div
+              class="eye-icon p-absolute ideal-flex v-centering"
+              id="eyeIcon"
+            >
+              <i class="fa-regular fa-eye"></i>
+            </div>
+          </div>
+          <div class="checkbox-group between-flex">
+            <div class="checkbox-input ideal-flex">
+              <input type="checkbox" id="remember-checkbox" />
+              <label class="ml-5" for="remember-checkbox">Remember me</label>
+            </div>
+            <a href="#">Forgot password?</a>
+          </div>
+          <button class="w-full b-none c-white" id="log-btn">LOG IN</button>
+          <span class="p-absolute or-choice">Or</span>
+        </form>
+        <div class="form-footer">
+          <div class="social between-flex mt-25 mb-40">
+            <a href=""
+              ><div><i class="fa-brands fa-google"></i></div
+            ></a>
+            <a href=""
+              ><div><i class="fa-brands fa-facebook"></i></div
+            ></a>
+            <a href=""
+              ><div><i class="fa-brands fa-apple"></i></div
+            ></a>
+          </div>
+          <p class="txt-c">
+            Don't have an account? <a class="fs-15" href="">Sing up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="../../javascript/Registration/log.js"></script>
+  </body>
+</html>

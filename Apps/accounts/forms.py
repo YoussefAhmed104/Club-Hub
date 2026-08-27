@@ -3,7 +3,7 @@ from .models import CustomUser
 
 
 class LoginForm(forms.Form):
-  personal_email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
+  email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
   password = forms.CharField(widget=forms.PasswordInput)
 
 class RegesterForm(forms.ModelForm):
@@ -16,7 +16,7 @@ class RegesterForm(forms.ModelForm):
       'first_name',
       'last_name',
       'nickname',
-      'personal_email',
+      'email',
       'school_code',
       'phone_number',
       'grade',

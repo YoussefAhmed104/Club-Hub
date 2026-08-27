@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
-    <link rel="stylesheet" href="../../css/SignUp/style.css" />
+    <link rel="stylesheet" href="../../css/Registration/sign.css" />
     <!-- Render all elements noramlly -->
     <link rel="stylesheet" href="../../css/normalize.css" />
     <!-- My own framework -->
@@ -13,15 +13,34 @@
     <link rel="stylesheet" href="../../css/all.min.css" />
   </head>
   <body>
+    <!-- popupYes message -->
+    <div class="popupYes" id="popupYes">
+      <div class="icon">
+        <i class="fa-regular fa-circle-check"></i>
+        <h1>SUCCESS</h1>
+      </div>
+      <div class="info">
+        <h4>Congratulations, your account has been successfully created.</h4>
+        <button>Continue</button>
+      </div>
+    </div>
+    <!-- popupNo message -->
+    <div class="popupNo" id="popupNo">
+      <i class="fa-regular fa-circle-xmark"></i>
+      <h1>Failed</h1>
+      <h4>Invalid username or password.</h4>
+      <button>Ok</button>
+    </div>
+
     <div class="container">
       <div class="form-container">
         <div class="form-header">
           <h1>Sign Up</h1>
         </div>
-        <div class="form-box p-relative">
+        <form method="post">
           <div class="input-group p-relative">
             <input
-              type="name"
+              type="text"
               id="name"
               class="input-field"
               placeholder=""
@@ -57,12 +76,12 @@
               <i class="fa-regular fa-eye"></i>
             </div>
           </div>
-          <button class="w-full b-none c-white">Sign Up</button>
+          <button class="w-full b-none c-white" id="sign-btn">Sign Up</button>
           <p class="txt-c">
             Already have an account? <a class="fs-15" href="">Log in</a>
           </p>
           <span class="p-absolute or-choice">Or</span>
-        </div>
+        </form>
         <div class="form-footer mt-35">
           <a href=""
             ><div class="w-full ideal-flex">
@@ -73,19 +92,6 @@
         </div>
       </div>
     </div>
-    <script>
-      let eyeIcon = document.getElementById("eyeIcon");
-      let password = document.getElementById("password");
-      eyeIcon.onclick = function () {
-        let eye = document.querySelector(".input-group i");
-        if (password.type == "password") {
-          password.type = "text";
-          eye.className = "fa-regular fa-eye-slash";
-        } else {
-          password.type = "password";
-          eye.className = "fa-regular fa-eye";
-        }
-      };
-    </script>
+    <script src="../../javascript/Registration/sign.js"></script>
   </body>
 </html>

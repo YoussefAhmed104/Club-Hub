@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset password</title>
+    <link rel="stylesheet" href="../../css/Registration/forgot.css" />
+    <!-- Render all elements noramlly -->
+    <link rel="stylesheet" href="../../css/normalize.css" />
+    <!-- My own framework -->
+    <link rel="stylesheet" href="../../css/framework.css" />
+    <!-- Fontawesome Library -->
+    <link rel="stylesheet" href="../../css/all.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container p-relative">
+        <i class="fa-solid fa-arrow-left p-absolute arrowIcon"></i>
+        <h1>Forgot Password!</h1>
+        <p class="desc">
+          Please enter your username or email address. You will receive a link
+          to create a new password via email.
+        </p>
+        <form action="" method="post">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter Your Email" />
+          <button id="send">Send Email</button>
+        </form>
+        <p>Don't have an account? <a href="" class="fs-15">Sign up now</a></p>
+      </div>
+    </div>
+    <script>
+      let arrow = document.getElementsByClassName("arrowIcon");
+      arrow.onclick = function () {
+        window.history.back();
+      };
+    </script>
+  </body>
+</html>

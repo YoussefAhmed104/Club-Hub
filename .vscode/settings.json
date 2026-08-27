@@ -1,3 +1,8 @@
 {
+<<<<<<< HEAD
   "python-envs.defaultEnvManager": "ms-python.python:system"
 }
+=======
+  "liveServer.settings.port": 5501
+}
+>>>>>>> origin/ibrahim

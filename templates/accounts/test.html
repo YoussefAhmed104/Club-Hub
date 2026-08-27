@@ -1,2 +1,7 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
 <h1>Hello World {{ user.first_name }}</h1>
 <a href="{% url "logout" %}"><input type="button" value="Logout"></a>
+{% endblock content %}

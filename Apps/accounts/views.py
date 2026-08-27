@@ -21,9 +21,9 @@ def login_view(request):
     form = LoginForm(request.POST)
 
     if form.is_valid():
-      personal_email = form.cleaned_data['personal_email']
+      email = form.cleaned_data['email']
       password = form.cleaned_data['password']
-      user = authenticate(request, personal_email=personal_email, password=password)
+      user = authenticate(request, email=email, password=password)
 
       if user is not None:
         login(request, user)
@@ -56,7 +56,7 @@ def register(request):
         'Verify your Club Hub account',
         f'Click this link to verify your account: {verification_url}',
         None,
-        [user.personal_email],
+        [user.email],
       )
 
       return redirect('login')

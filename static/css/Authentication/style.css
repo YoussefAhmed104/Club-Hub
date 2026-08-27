@@ -24,19 +24,20 @@ body {
   background-color: var(--color-background);
 }
 .container {
-  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 .form-container {
   background-color: var(--color-white);
-  padding: 50px 30px;
+  padding: 30px 30px;
+  margin-top:50px;
+  margin-bottom:50px;
   width: 100%;
   max-width: 450px;
   border-color: var(--color-border);
   border-radius: 8px;
 }
+
 .form-header p {
   color: var(--color-placeholder);
 }
@@ -48,7 +49,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
   padding-bottom: 40px;
   border-bottom: 2px solid var(--color-border);
 }
@@ -88,9 +89,7 @@ body {
   color: var(--color-border);
   cursor: pointer;
 }
-.checkbox-group .checkbox-input label {
-  font-size: 14px;
-}
+.checkbox-group .checkbox-input label,
 .checkbox-group a {
   font-size: 14px;
 }
@@ -100,6 +99,8 @@ body {
   border-radius: 3px;
   cursor: pointer;
   font-weight: 700;
+  border: none;
+  outline: none;
 }
 .form-box button:hover {
   background-color: var(--color-primary-hover);
@@ -142,4 +143,29 @@ body {
 }
 .form-footer p a {
   color: blue;
+}
+.form-footer a {
+  text-decoration: none;
+  color: black;
+}
+.form-footer div {
+  padding: 15px 30px;
+  border: 1px solid black;
+  border-radius: 6px;
+  transition: var(--main-transition);
+}
+.form-footer div i {
+  color: #ea4335;
+  transition: var(--main-transition);
+}
+.form-footer a:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-white);
+}
+.form-footer div:hover i {
+  color: var(--color-white);
+}
+.txt-c{
+  padding-top:35px;
 }

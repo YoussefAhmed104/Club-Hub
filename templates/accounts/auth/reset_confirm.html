@@ -1,11 +1,35 @@
+{% extends '../../base.html' %}
+{% load static %}
+
+{% block content %}
+
 {% if validlink %}
-  <h2>Set New Password</h2>
-  {% csrf_token %}
-  <form method="POST">
-    {{ form.as_p }}
-    <button type="submit">Change Password</button>
+  <form method="POST" class="form-container">
+    {% csrf_token %}
+
+    <div class="form-header">
+      <h1>Set New Password</h1>
+    </div>
+    {% if form.errors %}
+      <div style="color: red; margin-bottom: 10px;">
+        {{ form.errors }}
+      </div>
+    {% endif %}
+    <div class="form-box p-relative">
+      <div class="input-group p-relative">
+        <input type="password" id="password" name="new_password1" class="input-field" placeholder="" required />
+        <label for="password" class="floating-label">New Password</label>
+        <i id="eyeIcon" class="fa-regular fa-eye"></i>
+      </div>
+      <div class="input-group p-relative">
+        <input type="password" id="password_confirm" name="new_password2" class="input-field" placeholder="" required />
+        <label for="password_confirm" class="floating-label">Confirm New Password</label>
+      </div>
+      <button type="submit" >Change Password</button>
+    </div>
   </form>
 {% else %}
   <h2>Link Expired or Invalid</h2>
   <p>This password reset link is invalid or has expired. Please request a new one.</p>
 {% endif %}
+{% endblock %}
