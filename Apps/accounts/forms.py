@@ -1,5 +1,5 @@
 from django import forms
-from .models import CustomUser
+from .models import *
 
 
 class LoginForm(forms.Form):
@@ -31,3 +31,17 @@ class RegesterForm(forms.ModelForm):
         raise forms.ValidationError("Passwords do not match.")
     
     return cleaned_data
+
+
+class InterestForm(forms.Form):
+  interests = forms.ModelMultipleChoiceField(
+    queryset= Interests.objects.all(),
+    widget=forms.CheckboxSelectMultiple,
+    required=True)
+  def clean_interests(self):
+    interests = self.cleaned_data['interests']
+
+    if len(interests) < 2 :
+      raise forms.ValidationError("Please select at least 2 interests")
+
+    return interests

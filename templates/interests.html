@@ -1,0 +1,44 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/pages/interests.css' %}"/>
+{% endblock style %}
+{% block content %}
+<div class="box">
+  <h1>What is your area of interest?</h1>
+  <p>This helps us recommend great content.</p>
+
+  <form method="POST">
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+      <div class="error-box" style="color: red; margin-bottom: 15px;">
+        {% for error in form.non_field_errors %}
+          <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if form.interests.errors %}
+      <div class="error-box" style="color: red; margin-bottom: 15px;">
+        {% for error in form.interests.errors %}
+          <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="choices d-flex f-wrap gap-10">
+      {% for interest in form.fields.interests.queryset %}
+        <label class="interest-item">
+          <input type="checkbox" name="interests" value="{{ interest.id }}">
+          <span>{{ interest.name }}</span>
+        </label>
+      {% endfor %}
+    </div>
+
+    <button id="next" type="submit">
+      Next <i class="fa-solid fa-arrow-right-long"></i>
+    </button>
+  </form>
+</div>
+{% endblock content %}

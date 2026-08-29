@@ -1,0 +1,54 @@
+.box{
+  margin-top:100px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.choices .interest-item input[type="checkbox"] {
+  display: none;
+}
+.choices .interest-item {
+  color: #0980ff;
+  background-color: #f0f2f5;
+  padding: 8px 18px;
+  border-radius: 35px;
+  font-size: 16px;
+  transition: var(--main-transition);
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+}
+.choices .interest-item:hover {
+  background-color: #d6d6eb;
+}
+.choices .interest-item:has(input:checked) {
+  color: white;
+  background-color: #007bff;
+}
+.choices .interest-item:has(input:checked):hover {
+  background-color: #025fc4;
+}
+button {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  width: 150px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}

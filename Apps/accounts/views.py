@@ -1,6 +1,6 @@
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.encoding import force_bytes, force_str
@@ -13,7 +13,8 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='login')
 def test(request):
-  return render(request, 'accounts/test.html')
+  clubs = Club.objects.filter(interests__in=request.user.interests.all()).distinct()
+  return render(request, 'accounts/test.html', {"clubs": clubs})
 
 
 def login_view(request):
@@ -27,7 +28,11 @@ def login_view(request):
 
       if user is not None:
         login(request, user)
-        return redirect('test')  # Redirect to a success page after login
+
+        if len(request.user.interests.all()) == 0:
+          return redirect('interests')
+        else:
+          return redirect('test')
 
       form.add_error(None, 'Invalid email or password.')
 
@@ -86,3 +91,21 @@ def user_logout(request):
   logout(request)
   messages.success(request,"You are loged out succesfully")
   return redirect('login')
+
+
+@login_required
+def choose_interests(request):
+  if request.method =="POST":
+    form = InterestForm(request.POST)
+
+    if form.is_valid():
+      request.user.interests.set(form.cleaned_data["interests"])
+      return redirect("test")
+      
+    else:
+      print("forms errors:", form.errors)
+  else:
+    form = InterestForm()
+
+  return render(request, "interests.html", {"form":form})
+

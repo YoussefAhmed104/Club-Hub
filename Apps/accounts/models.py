@@ -1,3 +1,5 @@
+from pyexpat import model
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 import re
@@ -24,6 +26,14 @@ class CustomUserManager(BaseUserManager):
       raise ValueError("Superuser must have is_superuser=True")
     return self.create_user(email, password, **extra_fields)
 
+class Interests(models.Model):
+  name = models.CharField(max_length = 100, unique = True)
+  slug = models.SlugField(unique = True)
+
+  def __str__(self):
+    return self.name
+
+
 class CustomUser(AbstractUser):
   username = None
   GRADE_CHOICES = [
@@ -39,7 +49,9 @@ class CustomUser(AbstractUser):
   phone_number = models.CharField(max_length=11)
   profile_img = models.ImageField(upload_to = 'profile_imag/',default = 'profile.png', blank = True, null = True)
   grade = models.CharField(max_length=10, choices = GRADE_CHOICES)
-  
+
+  interests = models.ManyToManyField(Interests, related_name = 'users', blank = True)
+
   USERNAME_FIELD = 'email'
   REQUIRED_FIELDS = []
 
@@ -93,6 +105,7 @@ class Club(models.Model):
   mentors = models.ManyToManyField(CustomUser, related_name='mentors')
   members = models.ManyToManyField(CustomUser, through='Membership')
   club_img = models.ImageField(upload_to = 'club_images/', default = 'Club.png')
+  interests = models.ManyToManyField(Interests, related_name = 'clubs', blank = True)
 
   @property 
   def members_count(self):
@@ -100,6 +113,7 @@ class Club(models.Model):
       club = self,
       is_active=True,
     ).count()
+
 
   def __str__(self):
     return self.name
