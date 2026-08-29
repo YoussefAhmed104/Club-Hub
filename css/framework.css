@@ -12,6 +12,9 @@
 .ovr-hidden {
   overflow: hidden;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .d-block {
   display: block;
 }
