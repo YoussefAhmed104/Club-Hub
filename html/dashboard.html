@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Club Hub | Dashboard</title>
+    <link rel="stylesheet" href="../css/home/dashboard.css" />
+    <!-- Render all elements noramlly -->
+    <link rel="stylesheet" href="../../css/normalize.css" />
+    <!-- My own framework -->
+    <link rel="stylesheet" href="../../css/framework.css" />
+    <!-- Fontawesome Library -->
+    <link rel="stylesheet" href="../../css/all.min.css" />
+    <!-- <script src="../../javascript/Registration/interests.js" defer></script> -->
+  </head>
+  <body>
+    <!-- header -->
+    <header id="header">
+      <div class="container between-flex">
+        <div class="left-half ideal-flex pl-23">
+          <div class="burger"><i class="fa-solid fa-bars"></i></div>
+          <div class="icon">
+            <i></i>
+            <span>Club hub</span>
+          </div>
+        </div>
+
+        <div class="others ideal-flex">
+          <div class="joinOrCreate">
+            <i class="fa-solid fa-plus plus"></i>
+          </div>
+          <div class="notification p-relative">
+            <i class="fa-regular fa-bell bell"></i>
+            <i class="fa-solid fa-circle p-absolute dot"></i>
+          </div>
+          <div class="account">
+            <img
+              class="img-account h-full"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP9J5MY-KtK-6YZA2VccpymCFyJSbVm39k2BFsq3Kn_A&s=10"
+              alt="image"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="side-bar">
+      <div class="home" id="home">
+        <a href=""><i class="fa-regular fa-house"></i> <span>Home</span></a>
+      </div>
+
+      <div class="calender" id="calender">
+        <a href=""
+          ><i class="fa-regular fa-calendar"></i> <span>Calender</span></a
+        >
+      </div>
+
+      <hr class="mb-30" />
+
+      <div class="enrolled" id="enrolled">
+        <a href=""
+          ><i class="fa-solid fa-graduation-cap"></i>
+          <span>Enrolled classes</span></a
+        >
+      </div>
+
+      <hr class="mb-30" />
+
+      <div class="archived" id="archived">
+        <a href=""
+          ><i class="fa-solid fa-file-arrow-down"></i> <span>Archived</span></a
+        >
+      </div>
+
+      <div class="settings" id="settings">
+        <a href=""><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
+      </div>
+    </div>
+    <script>
+      const header = document.getElementById("header");
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 20) {
+          header.classList.add("scroll");
+        } else {
+          header.classList.remove("scroll");
+        }
+      });
+
+      const titles = document.querySelectorAll(".side-bar > div");
+
+      titles.forEach((title) => {
+        title.addEventListener("click", function () {
+          titles.forEach((item) => item.classList.remove("active"));
+          title.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -105,6 +105,9 @@
 .pl-15 {
   padding-left: 15px;
 }
+.pl-23 {
+  padding-left: 23px;
+}
 .m-auto {
   margin-left: auto;
   margin-right: auto;
@@ -173,6 +176,9 @@
   margin-left: 10px;
 }
 /* Start Color */
+.bg-transparent {
+  background-color: transparent;
+}
 .bg-white {
   background-color: white;
 }
@@ -193,6 +199,9 @@
 }
 .bg-red {
   background-color: var(--red-color);
+}
+.c-transparent {
+  color: transparent;
 }
 .c-white {
   color: white;
