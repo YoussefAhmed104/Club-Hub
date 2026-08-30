@@ -1,0 +1,29 @@
+header.scroll {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.others .joinOrCreate.active .list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.side-bar.open {
+  transform: translateX(0);
+  width: 290px;
+}
+
+.side-bar.open > div span {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-bar > div.active {
+  background-color: var(--color-primary-hover);
+  color: var(--color-white);
+  z-index: 2;
+}
+
+.side-bar > div.active img.stemVct {
+  filter: brightness(0) invert(1);
+}

@@ -4,20 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Club Hub | Dashboard</title>
-    <link rel="stylesheet" href="../css/home/dashboard.css" />
+    <!-- Fixed Styling -->
+    <link rel="stylesheet" href="../css/fixed style/dashboard.css" />
+    <link rel="stylesheet" href="../css/fixed style/javaclasses.css" />
     <!-- Render all elements noramlly -->
     <link rel="stylesheet" href="../../css/normalize.css" />
     <!-- My own framework -->
     <link rel="stylesheet" href="../../css/framework.css" />
     <!-- Fontawesome Library -->
     <link rel="stylesheet" href="../../css/all.min.css" />
-    <!-- <script src="../../javascript/Registration/interests.js" defer></script> -->
+    <!-- Fixed JS -->
+    <script src="../javascript/dash.js" defer></script>
   </head>
   <body>
     <!-- header -->
     <header id="header">
       <div class="container between-flex">
-        <div class="left-half ideal-flex pl-23">
+        <div class="left-half ideal-flex">
           <div class="burger cursor-pointer" id="headBurger">
             <i class="fa-regular fa-chart-bar"></i>
           </div>
@@ -45,7 +48,7 @@
             <i class="fa-regular fa-bell bell"></i>
             <i class="fa-solid fa-circle p-absolute dot"></i>
           </div>
-          <div class="account">
+          <div class="account ideal-flex">
             <img
               class="img-account h-full"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP9J5MY-KtK-6YZA2VccpymCFyJSbVm39k2BFsq3Kn_A&s=10"
@@ -56,7 +59,7 @@
       </div>
     </header>
     <!-- side-bar -->
-    <div class="side-bar" id="sideBar">
+    <div class="side-bar p-relative" id="sideBar">
       <div class="commuinty" id="commuinty">
         <a href=""
           ><img
@@ -99,42 +102,5 @@
         <a href=""><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
       </div>
     </div>
-    <script>
-      const header = document.getElementById("header");
-
-      window.addEventListener("scroll", function () {
-        if (window.scrollY > 20) {
-          header.classList.add("scroll");
-        } else {
-          header.classList.remove("scroll");
-        }
-      });
-
-      let burger = document.getElementById("headBurger");
-      let side_bar = document.getElementById("sideBar");
-      burger.addEventListener("click", function () {
-        side_bar.classList.toggle("open");
-      });
-
-      const logo = document.querySelector(".stemVct");
-      logo.addEventListener("click", function () {
-        window.open("https://www.stemegypt.net/", "_blank");
-      });
-
-      const join = document.querySelector(".joinOrCreate");
-      join.addEventListener("click", function () {
-        join.classList.toggle("active");
-      });
-
-      const titles = document.querySelectorAll(".side-bar > div");
-
-      titles.forEach((title) => {
-        title.addEventListener("click", function (event) {
-          event.preventDefault();
-          titles.forEach((item) => item.classList.remove("active"));
-          title.classList.add("active");
-        });
-      });
-    </script>
   </body>
 </html>
