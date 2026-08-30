@@ -7,9 +7,10 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.contrib.auth import authenticate, login, logout
 from .forms import *
-from .models import CustomUser
+from .models import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count , Q
 
 @login_required(login_url='login')
 def test(request):
@@ -109,3 +110,19 @@ def choose_interests(request):
 
   return render(request, "interests.html", {"form":form})
 
+@login_required
+def recommended_clubs_view(request):
+  user_interests = request.user.userprofile.interests.all()
+
+  recommended_clubs = (
+    Club.objects.filter(Interests__in = user_interests).annotate(
+      count = Count('interests', filter=Q(Interests__in = user_interests))
+    )
+    .distinct().order_by('-count')
+  )
+  return render(request, 'interests.html', {'recommended_clubs': recommended_clubs})
+
+@login_required
+def all_clubs_view(request):
+  clubs = Club.objects.all()
+  return render(request, 'pages/all_clubs.html', {'clubs':clubs})
