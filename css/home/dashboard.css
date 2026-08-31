@@ -89,7 +89,6 @@ header .container {
 .left-half .burger {
   font-size: 20px;
   line-height: 1;
-  font-size: 25px;
 }
 header .burger,
 header .joinOrCreate,
@@ -189,10 +188,17 @@ header .icon span {
 .others .plus {
   font-size: 18px;
 }
+.root-page {
+  padding-top: var(--header-height);
+  margin-left: 95px;
+}
+
+.main-content {
+  padding: 20px;
+}
 /* Side-bar */
 .side-bar {
   position: fixed;
-  top: var(--header-height);
   left: 0;
   z-index: 500;
   background-color: transparent;

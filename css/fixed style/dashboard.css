@@ -89,7 +89,6 @@ header .container {
 .left-half .burger {
   font-size: 20px;
   line-height: 1;
-  font-size: 25px;
 }
 header .burger,
 header .joinOrCreate,
@@ -189,14 +188,30 @@ header .icon span {
 .others .plus {
   font-size: 18px;
 }
+
+.root-page {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.root-page > h1 {
+  flex: 1;
+  min-width: 0;
+  padding: 20px 20px 0;
+  font-size: 2rem;
+}
+
 /* Side-bar */
 .side-bar {
-  position: fixed;
-  top: var(--header-height);
+  position: relative;
+  z-index: 2;
   left: 0;
-  z-index: 500;
   background-color: transparent;
   width: 95px;
+  min-width: 95px;
   height: calc(100vh - var(--header-height));
   padding: 20px;
   overflow-y: auto;
@@ -205,10 +220,23 @@ header .icon span {
     transform var(--main-transition);
 }
 @media (max-width: 550px) {
+  .root-page {
+    display: block;
+  }
+
   .side-bar {
     position: absolute;
-
+    top: 0;
+    left: 0;
     transform: translateX(-100%);
+    width: 95px;
+    min-width: 95px;
+    height: calc(100vh - var(--header-height));
+  }
+
+  .side-bar.open {
+    transform: translateX(0);
+    width: 290px;
   }
 }
 .side-bar > div span {
