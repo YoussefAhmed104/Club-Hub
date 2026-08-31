@@ -232,6 +232,7 @@ header .icon span {
     width: 95px;
     min-width: 95px;
     height: calc(100vh - var(--header-height));
+    background-color: var(--color-white);
   }
 
   .side-bar.open {
