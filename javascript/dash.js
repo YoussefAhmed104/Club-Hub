@@ -24,7 +24,7 @@ join.addEventListener("click", function () {
   join.classList.toggle("active");
 });
 
-const titles = document.querySelectorAll(".side-bar > div");
+/* const titles = document.querySelectorAll(".side-bar > div");
 
 titles.forEach((title) => {
   title.addEventListener("click", function (event) {
@@ -32,7 +32,7 @@ titles.forEach((title) => {
     titles.forEach((item) => item.classList.remove("active"));
     title.classList.add("active");
   });
-});
+}); */
 
 /* pages  */
 const about = document.getElementById("about");

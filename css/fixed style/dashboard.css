@@ -28,10 +28,11 @@ body {
   background-color: var(--main-background);
   width: 100vw;
   overflow-x: hidden;
-  height: 900vh;
+  height: 100%;
 }
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 ul {
   list-style: none;
@@ -111,7 +112,6 @@ header .notification:hover {
 .left-half .icon {
   display: flex;
   align-items: center;
-  gap: 8px;
 }
 .left-half .stemVct {
   width: 65px;
@@ -195,6 +195,7 @@ header .icon span {
   align-items: flex-start;
   padding-top: var(--header-height);
   min-height: calc(100vh - var(--header-height));
+  width: 100%;
 }
 
 .root-page > h1 {
@@ -206,10 +207,11 @@ header .icon span {
 
 /* Side-bar */
 .side-bar {
-  position: relative;
+  position: sticky;
+  top: var(--header-height);
   z-index: 2;
   left: 0;
-  background-color: beige /* transparent */;
+  background-color: transparent;
   width: 95px;
   min-width: 95px;
   height: calc(100vh - var(--header-height));
@@ -231,7 +233,7 @@ header .icon span {
     transform: translateX(-100%);
     width: 95px;
     min-width: 95px;
-    height: calc(100vh - var(--header-height));
+    height: 100%;
     background-color: var(--color-white);
   }
 
