@@ -209,7 +209,7 @@ header .icon span {
   position: relative;
   z-index: 2;
   left: 0;
-  background-color: transparent;
+  background-color: beige /* transparent */;
   width: 95px;
   min-width: 95px;
   height: calc(100vh - var(--header-height));

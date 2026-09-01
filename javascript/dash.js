@@ -33,3 +33,13 @@ titles.forEach((title) => {
     title.classList.add("active");
   });
 });
+
+/* pages  */
+const about = document.getElementById("about");
+about.addEventListener("click", function () {
+  if (window.location.pathname.includes("about.html")) {
+    location.reload();
+  } else {
+    window.location.href = "main pages/about.html";
+  }
+});
