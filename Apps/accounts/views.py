@@ -1,7 +1,7 @@
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.http import HttpResponse, request
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
@@ -126,3 +126,18 @@ def recommended_clubs_view(request):
 def all_clubs_view(request):
   clubs = Club.objects.all()
   return render(request, 'pages/all_clubs.html', {'clubs':clubs})
+
+@login_required
+def club_details_view(request, club_id):
+  club = get_object_or_404(Club, pk= club_id)
+
+  return render(request, 'pages/club_details.html', {'club': club})
+
+@login_required
+def member_list_view(request, club_id):
+  club = get_object_or_404(Club, pk= club_id)
+  memberships = Membership.objects.filter(
+    club=club, is_active=True
+  ).select_related('user').order_by('points', 'user__first_name')
+
+  return render(request, 'pages/members_list.html', {'club': club, 'memberships': memberships})

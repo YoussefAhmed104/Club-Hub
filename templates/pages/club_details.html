@@ -1,0 +1,15 @@
+<h1>{{ club.name }}</h1>
+<hr>
+<p>{{ club.description }}</p>
+<hr>
+<p>Club President: {{ club.president }}</p>
+<p>Club Vice President: {{ club.vice_president }}</p>
+<p>Club Mentors: {{ club.mentors.count }}</p>
+<p>Club Members: {{ club.members_count }}</p>
+<p>Club Members: {{ club.members }}</p>
+
+
+<a href="{% url 'members' club.id %}">View Club Members</a>
+
+<a href="{% url 'clubs' %}">Back to All Clubs</a>
+

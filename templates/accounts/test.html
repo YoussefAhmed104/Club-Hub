@@ -2,6 +2,9 @@
 {% load static %}
 
 {% block content %}
+
 <h1>Hello World {{ user.first_name }}</h1>
+<a href="{% url "clubs" %}">View Clubs list</a>
 <a href="{% url "logout" %}"><input type="button" value="Logout"></a>
+
 {% endblock content %}

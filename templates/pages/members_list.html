@@ -1,0 +1,9 @@
+<h1> {{ club.name }} member list</h1>
+
+
+{% for membership in memberships %}
+
+<h3>{{ membership.user.first_name }} {{ membership.user.last_name }}</h3>
+<p><strong>Points:</strong> {{ membership.points }}</p>
+<hr>
+{% endfor %}

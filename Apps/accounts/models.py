@@ -112,7 +112,7 @@ class Club(models.Model):
     return Membership.objects.filter(
       club = self,
       is_active=True,
-    ).count()
+    ).count()-(2+len(self.mentors.all()))
 
 
   def __str__(self):

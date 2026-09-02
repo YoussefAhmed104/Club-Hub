@@ -1,125 +1,116 @@
 import os
 import django
+import random
 
 # Set up Django environment
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Club_Hub.settings')
 django.setup()
 
 from django.contrib.auth import get_user_model
-from Apps.accounts.models import Club, Interests
+from Apps.accounts.models import Club, Membership  # Update path if Membership is in another app
 
 User = get_user_model()
 
-def seed_database():
-    print("Starting database seed process...")
+def seed_memberships():
+    print("Starting membership seeding process...")
 
-    # 1. Create or get default admin user (accounting for CustomUser fields)
-    default_user, created = User.objects.get_or_create(
-        email='admin@example.com',
-        defaults={
-            'first_name': 'Admin',
-            'last_name': 'User',
-            'nickname': 'Admin',
-            'school_code': 'ADM0001',  # Required unique CharField(max_length=7)
-            'phone_number': '01000000000',
-            'grade': '12th',
-            'is_staff': True,
-            'is_superuser': True,
-            'email_verified': True,
-        }
-    )
-    if created:
-        default_user.set_password('admin123')
-        default_user.save()
-        print(f"Created default user '{default_user.email}' for club leadership.")
-
-    # 2. Define and create all interests
-    interest_names = [
-        "Robotics", "Engineering", "English", "Physics", "Mathematics",
-        "Cyber security", "Game development", "Astronomy", "Visual arts",
-        "Machine learning", "Generative AI", "Chemistry", "Biology",
-        "Geology", "Humanities", "Web development", "Quantum computing"
+    # 1. Fetch clubs
+    club_names = [
+        "Robotics & Automation Guild",
+        "Quantum & Theoretical Physics Society",
+        "AI Explorers & Innovators",
+        "Cyber Defense Initiative",
+        "Game Craft Collective",
+        "Cosmic Explorers Club",
+        "BioTech Innovations",
+        "Literary & Humanities Forum",
+        "Full-Stack Developers Network",
+        "Creative Tech & Design Studio"
     ]
+    
+    clubs = list(Club.objects.filter(name__in=club_names))
+    if len(clubs) < 10:
+        print(f"Warning: Only found {len(clubs)}/10 clubs in database. Please run the club seeding script first.")
+        return
 
-    interest_objs = {}
-    for name in interest_names:
-        obj, _ = Interests.objects.get_or_create(name=name)
-        interest_objs[name] = obj
+    # 2. Fetch available users
+    all_users = list(User.objects.all())
+    # Each club requires 1 + 1 + 2 + 8 = 12 memberships.
+    # To ensure distinct Pres/VP per club, we need at least 20 distinct users for 10 Pres + 10 VP.
+    if len(all_users) < 20:
+        print(f"Error: Need at least 20 users to assign unique Presidents and Vice-Presidents across 10 clubs. Found {len(all_users)}.")
+        return
 
-    print(f"Ensured {len(interest_objs)} interests exist in the database.")
+    # 3. Track executive assignments to enforce uniqueness rule
+    assigned_executive_users = set()
 
-    # 3. Define the 10 Clubs with their details and associated interests
-    clubs_data = [
-        {
-            "name": "Robotics & Automation Guild",
-            "description": "Building next-generation autonomous systems, competing in robotics leagues, and hosting hardware workshops.",
-            "interests": ["Robotics", "Engineering", "Machine learning"]
-        },
-        {
-            "name": "Quantum & Theoretical Physics Society",
-            "description": "Exploring quantum computing paradigms, advanced physics, and abstract mathematical modeling.",
-            "interests": ["Physics", "Mathematics", "Quantum computing"]
-        },
-        {
-            "name": "AI Explorers & Innovators",
-            "description": "Focused on deep learning, generative AI applications, and ethical artificial intelligence developments.",
-            "interests": ["Machine learning", "Generative AI", "Mathematics"]
-        },
-        {
-            "name": "Cyber Defense Initiative",
-            "description": "Capture the Flag (CTF) competitions, network safety research, and ethical hacking practices.",
-            "interests": ["Cyber security", "Web development"]
-        },
-        {
-            "name": "Game Craft Collective",
-            "description": "Designing games from concept to release, integrating interactive visual arts with game mechanics.",
-            "interests": ["Game development", "Visual arts", "Web development"]
-        },
-        {
-            "name": "Cosmic Explorers Club",
-            "description": "Observational astronomy, planetary geology research, and astrophysics discussions.",
-            "interests": ["Astronomy", "Geology", "Physics"]
-        },
-        {
-            "name": "BioTech Innovations",
-            "description": "Connecting molecular biology, organic chemistry, and computational biology to solve healthcare challenges.",
-            "interests": ["Biology", "Chemistry", "Engineering"]
-        },
-        {
-            "name": "Literary & Humanities Forum",
-            "description": "Fostering creative writing, analytical reading, philosophy, and interdisciplinary humanities research.",
-            "interests": ["English", "Humanities"]
-        },
-        {
-            "name": "Full-Stack Developers Network",
-            "description": "Building modern web platforms, open-source projects, and training emerging developers.",
-            "interests": ["Web development", "Cyber security"]
-        },
-        {
-            "name": "Creative Tech & Design Studio",
-            "description": "Where art meets technology—exploring visual design, generative art, and digital medium experimentation.",
-            "interests": ["Visual arts", "Generative AI", "Game development"]
-        }
-    ]
+    for club in clubs:
+        print(f"\nProcessing memberships for: {club.name}")
+        
+        # Clear existing memberships for a clean re-run if needed
+        Membership.objects.filter(club=club).delete()
 
-    # 4. Create clubs and populate ManyToMany interests
-    for club_info in clubs_data:
-        club, created = Club.objects.get_or_create(
-            name=club_info["name"],
-            defaults={
-                "description": club_info["description"],
-                "president": default_user,
-                "vice_president": default_user,
-            }
+        # --- A. Assign President & Vice-President ---
+        # Pick from users who are not yet a President or Vice-President in any club
+        available_for_exec = [u for u in all_users if u.id not in assigned_executive_users]
+        
+        executives = random.sample(available_for_exec, 2)
+        president_user = executives[0]
+        vp_user = executives[1]
+
+        # Mark them as assigned executive
+        assigned_executive_users.add(president_user.id)
+        assigned_executive_users.add(vp_user.id)
+
+        # Create President membership
+        Membership.objects.create(
+            user=president_user,
+            club=club,
+            role='president',
+            points=random.randint(300, 500)
         )
 
-        selected_interests = [interest_objs[name] for name in club_info["interests"] if name in interest_objs]
-        club.interests.set(selected_interests)
+        # Create Vice-President membership
+        Membership.objects.create(
+            user=vp_user,
+            club=club,
+            role='vice-president',
+            points=random.randint(250, 450)
+        )
 
-        action = "Created" if created else "Updated"
-        print(f"{action} club: {club.name}")
+        # --- B. Assign 2 Mentors ---
+        # Exclude the current club's Pres & VP
+        available_for_mentors = [u for u in all_users if u not in (president_user, vp_user)]
+        mentors = random.sample(available_for_mentors, 2)
 
-    print("Database seeding completed successfully!")
+        for mentor_user in mentors:
+            Membership.objects.create(
+                user=mentor_user,
+                club=club,
+                role='mentor',
+                points=random.randint(150, 300)
+            )
+
+        # --- C. Assign 8 Members ---
+        # Exclude current club's Pres, VP, and Mentors
+        club_assigned = {president_user, vp_user, *mentors}
+        available_for_members = [u for u in all_users if u not in club_assigned]
+
+        # If user count is less than 12, sample with replacement or take all available
+        sample_size = min(8, len(available_for_members))
+        members = random.sample(available_for_members, sample_size)
+
+        for member_user in members:
+            Membership.objects.create(
+                user=member_user,
+                club=club,
+                role='member',
+                points=random.randint(50, 200)
+            )
+
+        print(f" -> Assigned 1 Pres ({president_user.email}), 1 VP ({vp_user.email}), 2 Mentors, {sample_size} Members.")
+
+    print("\nMembership seeding finished successfully!")
 
 if __name__ == "__main__":
-    seed_database()
+    seed_memberships()

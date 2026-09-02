@@ -1,6 +1,9 @@
 {% for club in clubs %}
 
-{{ club.name }}
-<br>
+  <div>
+    <h3>{{ club.name }}</h3>
+    <a href="{% url 'club_detail' club.id %}">View club details</a>
+  </div>
+  <br>
 
 {% endfor %}
