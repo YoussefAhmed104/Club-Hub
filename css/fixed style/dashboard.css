@@ -217,9 +217,7 @@ header .icon span {
   height: calc(100vh - var(--header-height));
   padding: 20px;
   overflow-y: auto;
-  transition:
-    width var(--main-transition),
-    transform var(--main-transition);
+  transition: var(--main-transition);
 }
 @media (max-width: 550px) {
   .root-page {
@@ -244,7 +242,7 @@ header .icon span {
 }
 .side-bar > div span {
   opacity: 0;
-  visibility: hidden;
+  display: none;
   white-space: nowrap;
   transition:
     opacity var(--main-transition),
@@ -255,7 +253,7 @@ header .icon span {
 }
 .side-bar:hover > div span {
   opacity: 1;
-  visibility: visible;
+  display: inline;
 }
 .side-bar > div {
   position: relative;
@@ -287,7 +285,7 @@ header .icon span {
   margin-right: 8px;
   font-size: 20px;
   color: inherit;
-  display: inline-flex;
+  /* display: inline-flex; */
   line-height: 1;
   flex-shrink: 0;
 }

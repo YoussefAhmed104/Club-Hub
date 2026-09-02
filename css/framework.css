@@ -21,6 +21,9 @@
 .d-inline {
   display: inline;
 }
+.d-none {
+  display: none;
+}
 @media (max-width: 767px) {
   .block-mobile {
     display: block !important;
@@ -141,6 +144,12 @@
 }
 .mt-35 {
   margin-top: 35px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-80 {
+  margin-top: 80px;
 }
 .mr-5 {
   margin-right: 5px;
