@@ -15,6 +15,7 @@ header.scroll {
 
 .side-bar.open > div span {
   opacity: 1;
+  display: inline;
   visibility: visible;
 }
 

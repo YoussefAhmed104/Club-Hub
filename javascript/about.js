@@ -171,9 +171,38 @@ setInterval(slideShow9, 5000);
 
 /* staff section */
 
-let deputyBox = document.querySelector(".deputyBox");
-let deputy = document.querySelector("#deputy");
+const staffBoxes = [
+  [".deputyBox", "#deputy"],
+  [".counselorBox", "#counselor"],
+  [".psychologicalBox", "#psychological"],
+  [".capstoneBox", "#capstone"],
+  [".bioBox", "#biology"],
+  [".chemistryBox", "#chemistry"],
+  [".physicsBox", "#physics"],
+  [".geoBox", "#geology"],
+  [".mathsBox", "#maths"],
+  [".englishBox", "#english"],
+  [".arabicBox", "#arabic"],
+  [".socialBox", "#social"],
+  [".frenchBox", "#french"],
+  [".deutschBox", "#deutsch"],
+  [".technologyBox", "#technology"],
+  [".itBox", "#it"],
+  [".civilizationBox", "#civilization"],
+  [".socialCounsellorsBox", "#socialCounsellors"],
+  [".artBox", "#art"],
+  [".musicBox", "#music"],
+  [".libraryBox", "#library"],
+  [".journalismBox", "#journalism"],
+  ['[class="p.eBox"]', "#p\\.e"],
+  [".fabLabBox", "#fabLab"],
+];
 
-deputyBox.addEventListener("click", function () {
-  deputy.classList.toggle("appear");
+staffBoxes.forEach(function ([boxSelector, listSelector]) {
+  const box = document.querySelector(boxSelector);
+  const list = document.querySelector(listSelector);
+
+  box.querySelector(".box").addEventListener("click", function () {
+    list.classList.toggle("appear");
+  });
 });
