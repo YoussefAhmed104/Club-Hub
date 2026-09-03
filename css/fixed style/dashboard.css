@@ -214,7 +214,7 @@ header .icon span {
   background-color: transparent;
   width: 95px;
   min-width: 95px;
-  height: calc(100vh - var(--header-height));
+  /* height: calc(100vh - var(--header-height)); */
   padding: 20px;
   overflow-y: auto;
   transition: var(--main-transition);

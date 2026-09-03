@@ -168,3 +168,12 @@ function slideShow9() {
 }
 
 setInterval(slideShow9, 5000);
+
+/* staff section */
+
+let deputyBox = document.querySelector(".deputyBox");
+let deputy = document.querySelector("#deputy");
+
+deputyBox.addEventListener("click", function () {
+  deputy.classList.toggle("appear");
+});

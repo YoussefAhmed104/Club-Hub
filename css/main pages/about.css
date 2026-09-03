@@ -21,6 +21,7 @@
 .root-page .container {
   background-color: "";
   min-height: 100vh;
+  min-width: 0;
 }
 .container .image {
   padding: 20px 40px;
@@ -168,7 +169,7 @@
   content: "";
   position: absolute;
   width: 60%;
-  height: 2px;
+  height: 1px;
   background-color: black;
 }
 .slideShow h3::before {
@@ -183,6 +184,69 @@
   max-width: 100%;
   height: 450px;
   width: auto;
+}
+/* staff */
+.staff .staffContainer {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+  justify-content: space-between;
+  align-items: start;
+  gap: 30px;
+}
+@media (max-width: 800px) {
+  .staff .staffContainer {
+    grid-template-columns: 1fr;
+  }
+}
+.staffContainer .box {
+  border: 2px solid var(--alternative-blue);
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--alternative-blue);
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.1s;
+}
+.staffContainer .box:hover {
+  border-color: var(--color-primary-hover);
+  color: var(--color-primary-hover);
+}
+.staffContainer .box i {
+  margin-right: 10px;
+  font-size: 15px;
+}
+.staffContainer .box span {
+  text-transform: capitalize;
+  font-size: 17px;
+  white-space: nowrap;
+}
+.onclick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition:
+    max-height var(--main-transition) ease,
+    transform var(--main-transition) ease,
+    padding var(--main-transition) ease;
+}
+.onclick.appear {
+  max-height: 200px;
+  transform: translateY(0);
+  visibility: visible;
+  justify-content: center;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
 }
 @keyframes sentenceappear {
   from {
