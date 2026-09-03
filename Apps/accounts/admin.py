@@ -4,3 +4,4 @@ from .models import *
 admin.site.register(CustomUser)
 admin.site.register(Club)
 admin.site.register(Membership)
+admin.site.register(Task)

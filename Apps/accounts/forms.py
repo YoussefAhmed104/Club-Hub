@@ -44,4 +44,14 @@ class InterestForm(forms.Form):
     if len(interests) < 2 :
       raise forms.ValidationError("Please select at least 2 interests")
 
-    return interests
+
+class TaskForm(forms.ModelForm):
+  class Meta:
+    model = Task
+    fields = ['title', 'description', 'task_link', 'deadline']
+    widgets= {
+      'deadline': forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control'}),
+      'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Task Title'}),
+      'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
+      'task_link': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'https://...'}),
+    }

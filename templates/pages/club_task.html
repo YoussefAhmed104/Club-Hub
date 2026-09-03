@@ -1,0 +1,18 @@
+{% if tasks %}
+
+  {% for task in tasks %}
+
+    <h1>{{ task.title }}</h1>
+    <p>{{ task.description }}</p>
+    <hr>
+    <a href="{{ task.task_link }}" target="_blank">click here</a>
+    <h3>deadline: {{ task.deadline }}</h3>
+
+  {% endfor %}
+{% else %}
+<h1>There is no tasks</h1>
+{% endif %}
+
+<a href="{% url 'add_task' club.id %}">
+    <button type="button">Add New Task</button>
+</a>

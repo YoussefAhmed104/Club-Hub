@@ -20,6 +20,7 @@ urlpatterns = [
   # main pages
   path('all_clubs/', views.all_clubs_view, name='clubs'),
   path('clubs/<int:club_id>/', views.club_details_view, name= 'club_detail'),
-  path('clubs/<int:club_id>/members/', views.member_list_view, name= 'members')
-
+  path('clubs/<int:club_id>/members/', views.member_list_view, name= 'members'),
+  path('clubs/<int:club_id>/tasks/', views.tastks, name='club_task'),
+  path('clubs/<int:club_id>/tasks/add/', views.add_task_view, name='add_task')
 ]

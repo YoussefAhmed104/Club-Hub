@@ -9,7 +9,11 @@
 <p>Club Members: {{ club.members }}</p>
 
 
+<hr>
 <a href="{% url 'members' club.id %}">View Club Members</a>
-
+<hr>
+<a href="{% url 'club_task' club.id %}">Tasks</a>
+<hr>
 <a href="{% url 'clubs' %}">Back to All Clubs</a>
+<hr>
 

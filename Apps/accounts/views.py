@@ -141,3 +141,29 @@ def member_list_view(request, club_id):
   ).select_related('user').order_by('points', 'user__first_name')
 
   return render(request, 'pages/members_list.html', {'club': club, 'memberships': memberships})
+
+
+@login_required
+def tastks(request, club_id):
+  club = get_object_or_404(Club, pk= club_id)
+  tasks = Task.objects.filter(club=club).order_by('deadline')
+
+  return render(request, 'pages/club_task.html', {'club':club, 'tasks':tasks})
+
+
+@login_required
+def add_task_view(request, club_id):
+  club = get_object_or_404(Club, pk= club_id)
+  if request.method == 'POST':
+    form = TaskForm(request.POST)
+    if form.is_valid():
+      task = form.save(commit=False)
+      task.club= club
+      task.created_by = request.user
+      task.save()
+      return redirect('club_task', club_id=club.id)
+  else:
+    form = TaskForm()
+
+  return render(request, 'pages/add_task.html', {'club':club, 'form':form})
+

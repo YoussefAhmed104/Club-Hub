@@ -1,8 +1,8 @@
-from pyexpat import model
-
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 import re
+from django.contrib.auth import get_user_model
+
 
 class CustomUserManager(BaseUserManager):
   def create_user(self, email, password=None, **extra_fields):
@@ -117,3 +117,18 @@ class Club(models.Model):
 
   def __str__(self):
     return self.name
+
+
+# Add new task
+User = get_user_model()
+class Task(models.Model):
+  club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='tasks')
+  created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+  title = models.CharField(max_length=100)
+  description = models.TextField()
+  task_link = models.URLField(help_text="Link to Google Doc, Forms, etc.")
+  deadline = models.DateTimeField()
+  created_at = models.DateTimeField(auto_now_add=True)
+
+  def __str__(self):
+    return f"{self.title} - {self.club.name}"
