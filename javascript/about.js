@@ -206,3 +206,22 @@ staffBoxes.forEach(function ([boxSelector, listSelector]) {
     list.classList.toggle("appear");
   });
 });
+
+let tabs = document.querySelectorAll(".list ul li");
+let pages = document.querySelectorAll(".listPage");
+
+tabs.forEach(function (tab) {
+  tab.addEventListener("click", function () {
+    pages.forEach(function (page) {
+      page.classList.add("d-none");
+    });
+    document.querySelector(`.${tab.id}.listPage`).classList.remove("d-none");
+
+    tabs.forEach(function (tab) {
+      tab.classList.remove("active");
+    });
+    tab.classList.add("active");
+  });
+});
+
+document.querySelector("#overview").click();
