@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clubhub | About</title>
+    <link rel="stylesheet" href="../../css/main pages/about.css" />
+    <script src="../../javascript/about.js" defer></script>
+    <!-- Fixed Styling -->
+    <link rel="stylesheet" href="../../css/fixed style/dashboard.css" />
+    <link rel="stylesheet" href="../../css/fixed style/javaclasses.css" />
+    <!-- Render all elements noramlly -->
+    <link rel="stylesheet" href="../../css/normalize.css" />
+    <!-- My own framework -->
+    <link rel="stylesheet" href="../../css/framework.css" />
+    <!-- Fontawesome Library -->
+    <link rel="stylesheet" href="../../css/all.min.css" />
+    <!-- Fixed JS -->
+    <script src="../../javascript/dash.js" defer></script>
+  </head>
+  <body>
+    <!-- header -->
+    <header id="header">
+      <div class="container between-flex">
+        <div class="left-half ideal-flex">
+          <div class="burger cursor-pointer" id="headBurger">
+            <i class="fa-regular fa-chart-bar"></i>
+          </div>
+          <div class="icon ideal-flex">
+            <img
+              class="stemVct cursor-pointer"
+              src="../imgs/STEM Vector.svg"
+              alt=""
+            />
+            <span>Club hub</span>
+          </div>
+        </div>
+
+        <div class="others ideal-flex">
+          <div class="joinOrCreate p-relative">
+            <i class="fa-solid fa-plus plus"></i>
+            <div class="list p-absolute">
+              <ul>
+                <li>Join class</li>
+                <li>Create class</li>
+              </ul>
+            </div>
+          </div>
+          <div class="notification p-relative">
+            <i class="fa-regular fa-bell bell"></i>
+            <i class="fa-solid fa-circle p-absolute dot"></i>
+          </div>
+          <div class="account ideal-flex">
+            <img
+              class="img-account h-full"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP9J5MY-KtK-6YZA2VccpymCFyJSbVm39k2BFsq3Kn_A&s=10"
+              alt="image"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- root page -->
+    <div class="root-page d-flex">
+      <!-- side-bar -->
+      <div class="side-bar" id="sideBar">
+        <div class="home" id="home">
+          <a href=""><i class="fa-solid fa-house"></i> <span>Home</span></a>
+        </div>
+
+        <div class="calender" id="calender">
+          <a href=""
+            ><i class="fa-solid fa-calendar"></i> <span>Calender</span></a
+          >
+        </div>
+
+        <hr class="mb-30" />
+
+        <div class="enrolled" id="enrolled">
+          <a href=""
+            ><i class="fa-solid fa-graduation-cap"></i>
+            <span>Enrolled classes</span></a
+          >
+        </div>
+
+        <hr class="mb-30" />
+
+        <div class="archived" id="archived">
+          <a href="./All Clubs.html"
+            ><i class="fa-solid fa-file-arrow-down"></i>
+            <span>All Clubs</span></a
+          >
+        </div>
+
+        <div class="settings" id="settings">
+          <a href=""><i class="fa-solid fa-gear"></i> <span>Settings</span></a>
+        </div>
+        <div class="about active" id="about">
+          <a href=""
+            ><img
+              class="stemVct cursor-pointer"
+              src="../imgs/STEM Vector.svg"
+              alt=""
+            />
+            <span>About</span></a
+          >
+        </div>
+      </div>
+
+      <!-- page container -->
+      <div class="container flex-1" id="container">
+        <div class="image">
+          <div class="logo d-flex">
+            <img src="../imgs/STEM Vector.svg" alt="" />
+            <div class="spans">
+              <span>stem egypt</span>
+              <span>High School for Boys | 6th of October</span>
+            </div>
+          </div>
+          <div class="inspire ideal-flex">
+            New community | New goals | New life
+          </div>
+          <div class="info">
+            <div>
+              <i class="fa-solid fa-location-dot"></i> Cosmic Village, 6th of
+              October, Giza - Egypt
+            </div>
+            <div class="">
+              <i class="fa-solid fa-school"></i>Ranked #1 High School in Egypt
+            </div>
+          </div>
+        </div>
+        <!-- list -->
+        <div class="list">
+          <ul>
+            <li id="overview">Overview</li>
+            <li id="history">History</li>
+            <li id="staff">Staff</li>
+            <li id="vission">Vission & Mission</li>
+            <li id="target">Target students</li>
+          </ul>
+        </div>
+        <!-- list pages -->
+        <!-- overview -->
+        <div class="overview listPage d-none">
+          <p>
+            <b>Ranked as Egypt’s best High School</b>, STEM High School for Boys
+            – 6 of October was initiated as the product of a partnership between
+            the U.S. Agency for International Development (USAID), World
+            Learning and its sub-recipients the ECASE project to provide
+            technical assistance to the Ministry of Education to establish STEM
+            schools in Egypt. Offering a unique system that focuses on
+            scientific, mathematical and technological fields, STEM schools
+            target high-potential students who demonstrate strong academic
+            skills. Taught by professors involved in post-teacher studies, the
+            core skills and values acquired by the students throughout the
+            curriculum emphasize and promote critical inquiry and research,
+            problem solving skills, intellectual curiosity, and social
+            responsibility. As the first of its kind in Egypt, the school serves
+            applicants from different governorates: Cairo, Giza, Qalubia,
+            Fayoum, Bani Souwaif, as well as the cities near 6 of October city.
+          </p>
+          <div class="images">
+            <img src="../imgs/about/USAID.jpg" alt="" />
+            <img src="../imgs/about/STEM_Egypt.png" alt="" />
+          </div>
+        </div>
+        <!-- history -->
+        <div class="history listPage d-none">
+          <!-- inspire video -->
+          <div class="inspireVideo ideal-flex">
+            <video class="main" controls>
+              <source src="../imgs/history/main video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <!-- director visit -->
+          <div class="directorVisitImgs slideShow mt-80">
+            <h3>Innovators Care Fund Executive Director Visit</h3>
+
+            <div class="ideal-flex">
+              <img
+                id="slideFirst"
+                src="../imgs/history/director visit/1.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <!-- ISEF 2019 -->
+          <div class="slideShow mt-80">
+            <h3>ISEF 2019</h3>
+
+            <div class="ideal-flex">
+              <img id="slide2" src="../imgs/history/isef/1.jpg" alt="" />
+            </div>
+          </div>
+          <!-- EJUST tour -->
+          <div class="slideShow mt-80">
+            <h3>EJUST tour</h3>
+
+            <div class="ideal-flex">
+              <img id="slide3" src="../imgs/history/ejust tour/1.jpg" alt="" />
+            </div>
+          </div>
+          <!-- morning line -->
+          <div class="slideShow mt-80">
+            <h3>morning line</h3>
+
+            <div class="ideal-flex">
+              <img
+                id="slide4"
+                src="../imgs/history/morning line/1.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <!-- capstone -->
+          <div class="slideShow mt-80">
+            <h3>capstone</h3>
+
+            <div class="ideal-flex">
+              <img id="slide5" src="../imgs/history/capstone/1.jpg" alt="" />
+            </div>
+          </div>
+          <!-- teba international schools visit -->
+          <div class="slideShow mt-80">
+            <h3>teba international schools visit</h3>
+
+            <div class="ideal-flex">
+              <img id="slide6" src="../imgs/history/teba visit/1.jpg" alt="" />
+            </div>
+          </div>
+          <!-- oman embassy visit-->
+          <div class="slideShow mt-80">
+            <h3>oman embassy visit</h3>
+
+            <div class="ideal-flex">
+              <img id="slide7" src="../imgs/history/oman visit/1.jpg" alt="" />
+            </div>
+          </div>
+          <!-- the german teacher day -->
+          <div class="slideShow mt-80">
+            <h3>the german teacher day</h3>
+
+            <div class="ideal-flex">
+              <img id="slide8" src="../imgs/history/german day/1.jpg" alt="" />
+            </div>
+          </div>
+          <!-- dr ahmed zewail visit -->
+          <div class="slideShow mt-80">
+            <h3>dr ahmed zewail visit</h3>
+
+            <div class="ideal-flex">
+              <img id="slide9" src="../imgs/history/dr. zewil/1.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <!-- staff -->
+        <div class="staff listPage slideShow">
+          <h3 class="mt-10">meet <strong>our staff</strong></h3>
+          <div class="staffContainer">
+            <!-- School deputy -->
+            <div class="deputyBox">
+              <div class="box">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>school deputy</span>
+              </div>
+              <ul class="onclick" id="deputy">
+                <li>hema</li>
+                <li>hema</li>
+              </ul>
+            </div>
+            <!-- School counselor -->
+            <div class="counselorBox">
+              <div class="box">
+                <i class="fa-brands fa-discourse"></i>
+                <span>school counselor</span>
+              </div>
+              <ul class="onclick" id="counselor">
+                <li>hema</li>
+                <li>hema</li>
+              </ul>
+            </div>
+            <!-- Psychological counselors -->
+            <div class="psychologicalBox">
+              <div class="box">
+                <i class="fa-solid fa-arrow-rotate-left"></i>
+                <span>psychological counsellors</span>
+              </div>
+              <ul class="onclick" id="psychological">
+                <li>hema</li>
+                <li>hema</li>
+              </ul>
+            </div>
+            <!-- Capstone director -->
+            <div class="capstoneBox">
+              <div class="box">
+                <i class="fa-solid fa-toolbox"></i>
+                <span>capstone director</span>
+              </div>
+              <ul class="onclick" id="capstone">
+                <li>hema</li>
+                <li>hema</li>
+              </ul>
+            </div>
+            <!-- Biology -->
+            <div class="bioBox">
+              <div class="box">
+                <i class="fa-solid fa-toolbox"></i>
+                <span>biology</span>
+              </div>
+              <ul class="onclick" id="biology">
+                <li>hema</li>
+                <li>hema</li>
+              </ul>
+            </div>
+            <!-- chemistry -->
+            <div class="chemistryBox">
+              <div class="box">
+                <i class="fa-solid fa-toolbox"></i>
+                <span>chemistry</span>
+              </div>
+              <ul class="onclick" id="chemistry">
+                <li>hema</li>
+                <li>hema</li>
+              </ul>
+            </div>
+            <!-- physics -->
+            <div class="physicsBox">
+              <div class="box">
+                <i class="fa-solid fa-toolbox"></i>
+                <span>physics</span>
+              </div>
+              <ul class="onclick" id="physics">
+                <li>hema</li>
+                <li>hema</li>
+              </ul>
+            </div>
+            <!-- geology -->
+            <div class="geoBox">
+              <div class="box">
+                <i class="fa-solid fa-toolbox"></i>
+                <span>geology</span>
+              </div>
+              <ul class="onclick" id="geology">
+                <li>hema</li>
+                <li>hema</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

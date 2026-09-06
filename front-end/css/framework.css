@@ -12,11 +12,17 @@
 .ovr-hidden {
   overflow: hidden;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .d-block {
   display: block;
 }
 .d-inline {
   display: inline;
+}
+.d-none {
+  display: none;
 }
 @media (max-width: 767px) {
   .block-mobile {
@@ -105,6 +111,9 @@
 .pl-15 {
   padding-left: 15px;
 }
+.pl-23 {
+  padding-left: 23px;
+}
 .m-auto {
   margin-left: auto;
   margin-right: auto;
@@ -135,6 +144,12 @@
 }
 .mt-35 {
   margin-top: 35px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-80 {
+  margin-top: 80px;
 }
 .mr-5 {
   margin-right: 5px;
@@ -173,6 +188,9 @@
   margin-left: 10px;
 }
 /* Start Color */
+.bg-transparent {
+  background-color: transparent;
+}
 .bg-white {
   background-color: white;
 }
@@ -193,6 +211,9 @@
 }
 .bg-red {
   background-color: var(--red-color);
+}
+.c-transparent {
+  color: transparent;
 }
 .c-white {
   color: white;
