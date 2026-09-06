@@ -207,7 +207,7 @@ staffBoxes.forEach(function ([boxSelector, listSelector]) {
   });
 });
 
-let tabs = document.querySelectorAll(".list ul li");
+let tabs = document.querySelectorAll(".aboutList ul li");
 let pages = document.querySelectorAll(".listPage");
 
 tabs.forEach(function (tab) {

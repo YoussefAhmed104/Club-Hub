@@ -145,10 +145,10 @@ header .icon span {
 }
 .others .list {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   right: 0;
   min-width: 160px;
-  padding: 6px;
+  padding: 6px 0;
   background-color: var(--color-white);
   border: 1px solid #e1e4e8;
   border-radius: 10px;
@@ -164,13 +164,20 @@ header .icon span {
 }
 
 .others .list li {
+  display: block;
   padding: 10px 12px;
   border-radius: 6px;
   color: var(--color-text);
   white-space: nowrap;
-  transition: background-color var(--main-transition);
+  transition: background-color 0.1s;
 }
-.others .list li:hover {
+.others .list li:first-child {
+  cursor: pointer;
+}
+.others .list li:last-child {
+  color: #acaeb1;
+}
+.others .list li:first-child:hover {
   background-color: #f0f2f5;
 }
 .others .notification {
@@ -214,7 +221,6 @@ header .icon span {
   background-color: transparent;
   width: 95px;
   min-width: 95px;
-  /* height: calc(100vh - var(--header-height)); */
   padding: 20px;
   overflow-y: auto;
   transition: var(--main-transition);
@@ -272,7 +278,6 @@ header .icon span {
 .side-bar > div:hover {
   background-color: #e3e3e3;
 }
-/* This property is AI generate */
 .side-bar > div a {
   position: relative;
   z-index: 1;

@@ -91,7 +91,7 @@
 .container .info i {
   margin-right: 7px;
 }
-.container .list ul {
+.container .aboutList ul {
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
@@ -101,11 +101,11 @@
   color: #5a5a5a;
   background-color: var(--color-white);
 }
-.container .list ul li {
+.container .aboutList ul li {
   position: relative;
   cursor: pointer;
 }
-.container .list ul li::before {
+.container .aboutList ul li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -115,12 +115,12 @@
   background-color: transparent;
   transition: var(--main-transition);
 }
-.container .list li:hover,
-.container .list ul li.active {
+.container .aboutList li:hover,
+.container .aboutList ul li.active {
   color: #0909f1;
 }
 
-.container .list ul li.active::before {
+.container .aboutList ul li.active::before {
   background-color: #0909f1;
 }
 .container .listPage {
